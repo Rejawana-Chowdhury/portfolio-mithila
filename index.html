@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Mithila | Strategy & Narrative</title>
+    <title>Mithila | Strategy • Narrative • Presence</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -22,84 +22,79 @@
         body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; transition: background 0.4s ease; overflow-x: hidden; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
-        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+        .container { width: 100%; max-width: 1300px; margin: 0 auto; padding: 0 40px; }
 
-        /* HEADER & NAV - Professional Realignment */
-        nav { position: fixed; top: 0; width: 100%; padding: 20px 0; z-index: 1000; background: var(--nav-bg); backdrop-filter: blur(15px); border-bottom: 1px solid var(--border); }
+        /* HEADER - LOGO LEFT, NAV RIGHT */
+        nav { position: fixed; top: 0; width: 100%; padding: 25px 0; z-index: 1000; background: var(--nav-bg); backdrop-filter: blur(15px); border-bottom: 1px solid var(--border); }
         .nav-container { display: flex; justify-content: space-between; align-items: center; }
         
-        .logo { font-family: 'Playfair Display'; font-size: 1.8rem; font-weight: 700; color: var(--navy); text-decoration: none; letter-spacing: -1px; display: flex; align-items: center; }
-        .logo span { color: var(--gold); margin-right: 5px; font-style: italic; }
+        .logo { font-family: 'Playfair Display'; font-size: 1.8rem; font-weight: 700; color: var(--navy); text-decoration: none; letter-spacing: -1px; }
+        .logo span { color: var(--gold); font-style: italic; }
         [data-theme="dark"] .logo { color: white; }
 
-        .nav-right { display: flex; align-items: center; gap: 40px; }
-        .nav-links { display: flex; list-style: none; gap: 30px; align-items: center; }
+        .nav-right { display: flex; align-items: center; gap: 45px; }
+        .nav-links { display: flex; list-style: none; gap: 35px; align-items: center; }
         .nav-links a { text-decoration: none; color: var(--text); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; transition: 0.3s; }
-        .nav-links a:hover { color: var(--gold); }
+        .nav-links a:hover, .nav-links a.active { color: var(--gold); }
         
-        /* Dropdown Style */
+        /* Dropdown */
         .dropdown { position: relative; cursor: pointer; }
-        .dropdown-content { position: absolute; top: 100%; right: 0; background: var(--card-bg); min-width: 220px; box-shadow: var(--shadow); display: none; border-radius: 8px; padding: 15px 0; border: 1px solid var(--border); margin-top: 10px; }
+        .dropdown-content { position: absolute; top: 100%; right: 0; background: var(--card-bg); min-width: 260px; box-shadow: var(--shadow); display: none; border-radius: 8px; padding: 15px 0; border: 1px solid var(--border); margin-top: 15px; }
         .dropdown:hover .dropdown-content { display: block; }
-        .dropdown-content a { display: block; padding: 10px 25px; text-transform: none; font-size: 0.9rem; letter-spacing: 0; }
+        .dropdown-content a { display: block; padding: 12px 25px; text-transform: none; font-size: 0.9rem; letter-spacing: 0; border: none; }
 
-        .resume-btn { border: 2px solid var(--gold) !important; padding: 10px 22px !important; border-radius: 5px; color: var(--gold) !important; background: transparent; transition: all 0.3s ease; }
-        .resume-btn:hover { background: var(--gold); color: white !important; transform: scale(1.05); }
+        .resume-btn { border: 2px solid var(--gold) !important; padding: 10px 24px !important; border-radius: 4px; color: var(--gold) !important; font-weight: 700; transition: 0.3s; }
+        .resume-btn:hover { background: var(--gold); color: white !important; box-shadow: 0 5px 15px rgba(181, 148, 16, 0.3); }
 
-        .theme-btn { cursor: pointer; background: none; border: none; font-size: 1.4rem; color: var(--gold); display: flex; align-items: center; }
+        .theme-btn { cursor: pointer; background: none; border: none; font-size: 1.4rem; color: var(--gold); line-height: 1; }
 
-        /* HERO & ABOUT ME SECTION */
-        .hero-section { padding: 180px 0 100px; }
-        .about-flex { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; }
-        .profile-frame { position: relative; width: 100%; max-width: 450px; }
-        .profile-img { width: 100%; border-radius: 15px; box-shadow: var(--shadow); z-index: 2; position: relative; }
-        .profile-frame::after { content: ''; position: absolute; top: 20px; left: 20px; width: 100%; height: 100%; border: 3px solid var(--gold); border-radius: 15px; z-index: 1; }
+        /* HERO / ABOUT ME */
+        .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 100px; }
+        .hero-flex { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: center; }
+        .hero-text span { color: var(--gold); text-transform: uppercase; letter-spacing: 4px; font-weight: 700; font-size: 0.8rem; display: block; margin-bottom: 20px; }
+        .hero-text h1 { font-size: clamp(2.8rem, 6vw, 4.8rem); color: var(--navy); line-height: 1.1; margin-bottom: 30px; }
+        [data-theme="dark"] .hero-text h1 { color: white; }
+        .hero-text p { font-size: 1.2rem; color: var(--slate); max-width: 600px; margin-bottom: 25px; }
 
-        .about-content h1 { font-size: 3.5rem; color: var(--navy); margin-bottom: 25px; line-height: 1.1; }
-        [data-theme="dark"] .about-content h1 { color: var(--gold); }
-        .about-content p { font-size: 1.1rem; color: var(--slate); margin-bottom: 20px; }
-        
-        /* Supervisor Link Fix */
+        /* Supervisor Link Styling */
         .supervisor { color: var(--gold); text-decoration: none; font-weight: 700; transition: 0.3s; border-bottom: 2px solid transparent; }
         .supervisor:hover { color: var(--navy); border-bottom: 2px solid var(--gold); }
         [data-theme="dark"] .supervisor:hover { color: white; }
 
-        /* EXPERTISE GRID - Congestion Fix */
-        .section-header { margin-bottom: 60px; text-align: left; }
-        .section-header h2 { font-size: 2.5rem; margin-bottom: 10px; }
-        .accent-line { width: 80px; height: 4px; background: var(--gold); }
+        .hero-img-wrap { position: relative; width: 100%; }
+        .hero-img { width: 100%; border-radius: 20px; box-shadow: var(--shadow); position: relative; z-index: 2; border: 1px solid var(--border); }
+        .hero-img-wrap::after { content: ''; position: absolute; top: 30px; left: 30px; width: 100%; height: 100%; border: 3px solid var(--gold); border-radius: 20px; z-index: 1; }
 
-        .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
+        /* EXPERTISE SECTION - INCLUDING ECA */
+        .section-padding { padding: 120px 0; }
+        .section-header { margin-bottom: 70px; }
+        .section-header h2 { font-size: 3.2rem; margin-bottom: 15px; }
+        .accent-line { width: 100px; height: 6px; background: var(--gold); }
+
+        .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 40px; }
         .exp-card { 
-            background: var(--card-bg); padding: 50px; border-radius: 15px; 
+            background: var(--card-bg); padding: 60px; border-radius: 20px; 
             box-shadow: var(--shadow); border: 1px solid var(--border); 
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            text-decoration: none; color: inherit; display: block;
+            text-decoration: none; color: inherit; transition: 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+            display: flex; flex-direction: column; height: 100%;
         }
-        .exp-card:hover { transform: translateY(-12px); border-color: var(--gold); }
-        .exp-card h3 { font-size: 1.6rem; margin-bottom: 20px; color: var(--gold); }
-        .exp-card .meta { display: block; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--slate); margin-bottom: 15px; }
-        .exp-card p { font-size: 0.95rem; color: var(--slate); margin-bottom: 20px; }
+        .exp-card:hover { transform: translateY(-15px); border-color: var(--gold); box-shadow: 0 30px 60px rgba(0,0,0,0.12); }
+        .exp-card h3 { font-size: 1.8rem; margin-bottom: 20px; color: var(--gold); }
+        .exp-card p { font-size: 1.05rem; color: var(--slate); margin-bottom: 25px; flex-grow: 1; }
+        .exp-card .cta { font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; color: var(--gold); display: flex; align-items: center; gap: 10px; }
 
-        /* ECA SECTION */
-        .eca-section { padding: 100px 0; background: var(--navy); color: white; }
-        .eca-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
-        .eca-card { border-left: 3px solid var(--gold); padding-left: 25px; }
-        .eca-card h4 { font-size: 1.3rem; margin-bottom: 10px; color: var(--gold); }
+        /* CONTACT FOOTER */
+        .contact-footer { padding: 140px 0; text-align: center; background: var(--navy); color: white; clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%); margin-top: 50px; }
+        .avail-tag { display: inline-block; padding: 12px 30px; border: 2px solid var(--gold); color: var(--gold); border-radius: 50px; font-weight: 700; margin-bottom: 40px; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 2px; }
+        .email-link { font-family: 'Playfair Display'; font-size: clamp(2.2rem, 7vw, 4.5rem); color: white; text-decoration: none; transition: 0.4s; display: block; }
+        .email-link:hover { color: var(--gold); transform: translateY(-5px); }
 
-        /* CONTACT STYLE */
-        .contact-footer { padding: 120px 0; text-align: center; background: var(--bg); border-top: 1px solid var(--border); }
-        .availability { display: inline-block; padding: 10px 25px; border: 1.5px solid var(--gold); color: var(--gold); font-weight: 700; border-radius: 50px; margin-bottom: 40px; }
-        .email-big { font-family: 'Playfair Display'; font-size: 3.5rem; color: var(--text); text-decoration: none; display: block; transition: 0.3s; }
-        .email-big:hover { color: var(--gold); transform: scale(1.02); }
-
-        /* Mobile Adjustments */
-        @media (max-width: 900px) {
-            .about-flex { grid-template-columns: 1fr; text-align: center; }
-            .profile-frame { margin: 0 auto 50px; }
-            .about-content h1 { font-size: 2.5rem; }
+        @media (max-width: 1000px) {
+            .hero-flex { grid-template-columns: 1fr; text-align: center; }
+            .hero-text p { margin-left: auto; margin-right: auto; }
+            .hero-img-wrap { max-width: 450px; margin: 60px auto 0; }
             .nav-links { display: none; }
-            .email-big { font-size: 2rem; }
+            .nav-container { padding: 0 20px; }
         }
     </style>
 </head>
@@ -110,7 +105,7 @@
             <a href="index.html" class="logo"><span>M.</span>MITHILA</a>
             <div class="nav-right">
                 <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html" class="active">Home</a></li>
                     <li class="dropdown">
                         <a>Expertise ▼</a>
                         <div class="dropdown-content">
@@ -118,89 +113,82 @@
                             <a href="marketing.html">Marketing & Storytelling</a>
                             <a href="strategy.html">Strategic Planning</a>
                             <a href="voiceover.html">Voiceover</a>
-                            <a href="speaking.html">Anchoring</a>
+                            <a href="speaking.html">Anchoring & Public Speaking</a>
+                            <a href="eca.html">Extra-Curricular Activities</a>
                         </div>
                     </li>
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="https://linkedin.com/in/rejawanachowdhurymithila" target="_blank">LinkedIn</a></li>
                     <li><a href="YOUR_RESUME_URL" class="resume-btn">My Resume</a></li>
                 </ul>
-                <button class="theme-btn" onclick="toggleTheme()" id="themeIcon">🌓</button>
+                <button class="theme-btn" onclick="toggleTheme()" id="themeIcon">🌙</button>
             </div>
         </div>
     </nav>
 
     <main>
-        <section class="container hero-section">
-            <div class="about-flex">
-                <div class="profile-frame">
-                    <img src="profile.jpg" alt="Mithila" class="profile-img">
+        <section class="container hero">
+            <div class="hero-flex">
+                <div class="hero-text">
+                    <span>Creative Strategist • Narrative Artist</span>
+                    <h1>Rejawana Chowdhury Mithila</h1>
+                    <p>Blending technical precision with creative storytelling. I craft narratives that resonate and strategies that deliver across PR, Marketing, and Media.</p>
+                    <p>Leading communication initiatives under the mentorship of <a href="https://supervisorwebsite.com" class="supervisor" target="_blank">Professor Jane Doe</a>.</p>
                 </div>
-                <div class="about-content">
-                    <h1>Strategizing narratives, one word at a time.</h1>
-                    <p>I am Rejawana Chowdhury Mithila. I specialize in bridging the gap between technical complexity and human connection. With a background in CSE and a career built on communications, I craft strategies that resonate.</p>
-                    <p>Currently pursuing advanced projects under the mentorship of <a href="https://jane-doe.com" class="supervisor" target="_blank">Professor Jane Doe</a>, focusing on Digital Public Relations.</p>
+                <div class="hero-img-wrap">
+                    <img src="profile.jpg" alt="Mithila" class="hero-img">
                 </div>
             </div>
         </section>
 
-        <section class="container" id="expertise" style="padding-bottom: 100px;">
+        <section class="container section-padding" id="expertise">
             <div class="section-header">
-                <h2>Core Expertise</h2>
+                <h2>Portfolio Pillars</h2>
                 <div class="accent-line"></div>
             </div>
-            
             <div class="expertise-grid">
-                <a href="marketing.html" class="exp-card">
-                    <span class="meta">Featured Project</span>
-                    <h3>Marketing & Storytelling</h3>
-                    <p><strong>Purpose:</strong> To humanize corporate data through narrative-driven campaigns.<br>
-                       <strong>Goal:</strong> Increase brand sentiment by 40% among target youth demographics.<br>
-                       <strong>Achieved:</strong> Successfully led a digital campaign garnering 1M+ organic impressions.</p>
-                    <p style="color: var(--gold); font-weight: 700;">View Portfolio →</p>
-                </a>
-
                 <a href="pr.html" class="exp-card">
-                    <span class="meta">Corporate Leadership</span>
                     <h3>PR & Communications</h3>
-                    <p><strong>Purpose:</strong> Managing high-stakes stakeholder relationships and brand reputation.<br>
-                       <strong>Goal:</strong> Streamline crisis communication protocols for university-wide events.<br>
-                       <strong>Supervisor:</strong> Worked directly under <a href="https://supervisor-site.com" class="supervisor" target="_blank">Dr. Ahsan Kabir</a>.</p>
-                    <p style="color: var(--gold); font-weight: 700;">View Details →</p>
+                    <p>Managing brand reputation and stakeholder relations through strategic outreach and leadership.</p>
+                    <span class="cta">Explore Projects →</span>
                 </a>
-            </div>
-        </section>
-
-        <section class="eca-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 style="color: white;">Extra-Curricular Activities</h2>
-                    <div class="accent-line"></div>
-                </div>
-                <div class="eca-grid">
-                    <div class="eca-card">
-                        <h4>UIU Marketing Forum</h4>
-                        <p>Directed digital content strategy and managed inter-university competitions for 2+ years.</p>
-                    </div>
-                    <div class="eca-card">
-                        <h4>Debate & Public Speaking</h4>
-                        <p>Represented UIU in national-level tournaments, honing persuasive communication skills.</p>
-                    </div>
-                </div>
+                <a href="marketing.html" class="exp-card">
+                    <h3>Marketing & Storytelling</h3>
+                    <p>Developing digital-first campaigns that transform corporate goals into human stories.</p>
+                    <span class="cta">Explore Projects →</span>
+                </a>
+                <a href="strategy.html" class="exp-card">
+                    <h3>Strategic Planning</h3>
+                    <p>Designing comprehensive event frameworks and campaign roadmaps from concept to execution.</p>
+                    <span class="cta">Explore Projects →</span>
+                </a>
+                <a href="voiceover.html" class="exp-card">
+                    <h3>Voiceover</h3>
+                    <p>Providing professional tonal identity for commercial narrations and digital storytelling.</p>
+                    <span class="cta">Listen to Reels →</span>
+                </a>
+                <a href="speaking.html" class="exp-card">
+                    <h3>Anchoring & Speaking</h3>
+                    <p>Commanding the stage for live events, orientation programs, and national competitions.</p>
+                    <span class="cta">View Performances →</span>
+                </a>
+                <a href="eca.html" class="exp-card">
+                    <h3>Extra-Curriculars</h3>
+                    <p>A dedicated look at leadership roles, marketing forum initiatives, and competitive achievements.</p>
+                    <span class="cta">View Activities →</span>
+                </a>
             </div>
         </section>
 
         <section id="contact" class="contact-footer">
             <div class="container">
-                <div class="availability">Available for Internships & Projects</div>
-                <h2>Let's Connect</h2>
-                <a href="mailto:rejawana.mithila@gmail.com" class="email-big">rejawana.mithila@gmail.com</a>
+                <div class="avail-tag">Available for Internships & Projects</div>
+                <a href="mailto:rejawana.mithila@gmail.com" class="email-link">rejawana.mithila@gmail.com</a>
             </div>
         </section>
     </main>
 
     <script>
-        // Global Theme Sync Logic
         function applyTheme(theme) {
             const body = document.getElementById('body');
             const icon = document.getElementById('themeIcon');
@@ -213,7 +201,6 @@
             }
         }
 
-        // Initialize from storage
         const currentTheme = localStorage.getItem('theme') || 'light';
         applyTheme(currentTheme);
 
