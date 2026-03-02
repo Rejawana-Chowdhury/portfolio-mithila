@@ -75,7 +75,7 @@
             transition: 0.4s;
         }
 
-        /* TEXT BOX FIX - ALIGNING WITH IMAGE MARGINS */
+        /* TEXT BOX FIX */
         .desc-box {
             background: var(--desc-bg);
             padding: 30px;
@@ -97,12 +97,6 @@
 
         .stat-badge { display: inline-block; padding: 5px 15px; background: rgba(181, 148, 16, 0.1); color: var(--gold); font-weight: 700; font-size: 0.75rem; border-radius: 4px; margin: 0 10px 15px 0; border: 1px solid rgba(181, 148, 16, 0.2); }
 
-        /* FOOTER */
-        .contact-footer { padding: 140px 0; text-align: center; background: var(--navy); color: white; clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%); margin-top: 100px; }
-        .email-link { font-family: 'Playfair Display'; font-size: clamp(2.2rem, 7vw, 4.5rem); color: white; text-decoration: none; display: block; margin-bottom: 40px; }
-        .social-row { display: flex; justify-content: center; gap: 30px; }
-        .social-icon { width: 28px; height: 28px; fill: white; transition: 0.3s; }
-
         @media (max-width: 1000px) {
             .project-row, .leadership-grid, .cert-card { grid-template-columns: 1fr !important; }
             .nav-links { display: none; }
@@ -113,7 +107,7 @@
 
     <nav>
         <div class="container nav-container">
-            <a href="index.html" class="logo"><span>M.</span> Mithila</a>
+            <a href="index.html" class="logo"><span>M.</span>
             <div class="nav-right">
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
@@ -153,12 +147,27 @@
                 
                 <hr style="margin: 30px 0; border: none; border-top: 1px solid var(--border); opacity: 0.5;">
                 
-                <h4 style="color: var(--gold); margin-bottom: 10px; font-family: 'Inter'; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px;">Signature Initiative</h4>
-                <p class="common-description"><strong>UIU CCL Blog Platform:</strong> Leading the development of UIU’s first-ever blogging platform under UIU Computer Club — a member-exclusive space where registered members can create personal profiles, publish blogs across various niches, and build digital portfolios for higher studies, research, and career opportunities. The initiative is designed not only to support student visibility but also to strengthen community engagement, grow club membership, and expand digital presence, demonstrating leadership, strategic thinking, and project management with real organizational impact.</p>
-                
-                <div class="club-links" style="margin-top: 25px; display:flex; gap:25px;">
-                    <a href="https://naeemsadik.github.io/UIUCCL_BlogSite/index.html" class="club-link" target="_blank" style="color:var(--gold); text-decoration:none; font-weight:700;">Live Blog Site →</a>
-                    <a href="https://computerclub.uiu.ac.bd" class="club-link" target="_blank" style="color:var(--gold); text-decoration:none; font-weight:700;">Official Club Website →</a>
+                <div class="project-row" style="margin-bottom: 0;">
+                    <div class="thumb-box">
+                        <div class="image-frame gold-frame">
+                            <img src="blog_thumb.png" alt="UIU CCL Blog">
+                            <a href="https://naeemsadik.github.io/UIUCCL_BlogSite/index.html" class="see-more" target="_blank">View Live Site</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--gold); margin-bottom: 10px; font-family: 'Inter'; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px;">Signature Initiative</h4>
+                        <h3 style="margin-bottom: 15px;">UIU CCL Blog Platform</h3>
+                        <span class="stat-badge">UIU CCL</span>
+                        <span class="stat-badge">Signature Project</span>
+                        <span class="stat-badge">Member Exclusive</span>
+                        <p class="common-description">Leading the development of UIU’s first-ever blogging platform under UIU Computer Club — a member-exclusive space where registered members can create personal profiles, publish blogs across various niches, and build digital portfolios for higher studies, research, and career opportunities.</p>
+                        
+                        <div class="club-links" style="margin-top: 25px; display:flex; gap:25px; flex-wrap: wrap;">
+                            <a href="https://naeemsadik.github.io/UIUCCL_BlogSite/index.html" class="club-link" target="_blank" style="color:var(--gold); text-decoration:none; font-weight:700;">Live Blog Site →</a>
+                            <a href="https://www.facebook.com/uiuccl" class="club-link" target="_blank" style="color:var(--gold); text-decoration:none; font-weight:700;">Facebook Page →</a>
+                            <a href="https://computerclub.uiu.ac.bd" class="club-link" target="_blank" style="color:var(--gold); text-decoration:none; font-weight:700;">Official Club Website →</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -171,8 +180,6 @@
                 <p style="font-weight: 600; margin-bottom: 20px; color: var(--navy);">UIU PRO & Comms | United International University</p>
                 <div class="desc-box">
                     <p class="common-description">I had the opportunity to work as a communications apprentice in a program mentored by the Head of Communications at UIU, <a href="https://mutiatur.com/" target="_blank" style="color:var(--gold); text-decoration:none;">Sumaiya Mutiatur Rahman</a>. This experience allowed me to develop advanced skills in professional networking, creative organizational communication, and large-scale coordination.</p>
-                    <br>
-                    <p class="common-description">During this apprenticeship, I spearheaded multiple content initiatives that significantly expanded UIU's reach to both internal and external audiences, consistently bagging maximum views and shares. Thriving under pressure and tight deadlines, I focused on creative brainstorming and strategic messaging to maintain high engagement across university platforms.</p>
                 </div>
             </div>
         </div>
