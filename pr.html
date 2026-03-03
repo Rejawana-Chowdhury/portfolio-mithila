@@ -69,14 +69,11 @@
         .stat-badge { display: inline-block; padding: 5px 15px; background: rgba(181, 148, 16, 0.1); color: var(--gold); font-weight: 700; font-size: 0.75rem; border-radius: 4px; margin: 0 10px 15px 0; border: 1px solid rgba(181, 148, 16, 0.2); }
 
         /* CONTACT FOOTER FIXES */
-        .contact-footer { padding: 140px 0; text-align: center; background: var(--navy); color: white; clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%); margin-top: 100px; }
-        .avail-tag { color: var(--gold); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; font-size: 0.8rem; margin-bottom: 20px; }
-        .email-link { font-family: 'Playfair Display'; font-size: clamp(1.8rem, 5vw, 3.5rem); color: white; text-decoration: none; display: block; margin-bottom: 40px; transition: 0.3s; }
+        .contact-footer { padding: 140px 0; text-align: center; background: var(--navy); color: white; clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%); margin-top: 50px; }
+        .avail-tag { display: inline-block; padding: 12px 30px; border: 1px solid var(--gold); color: var(--gold); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; }
+        .email-link { font-family: 'Playfair Display'; font-size: clamp(2.2rem, 7vw, 4.5rem); color: white; text-decoration: none; transition: 0.4s; display: block; margin-bottom: 40px; }
         .email-link:hover { color: var(--gold); }
-        .social-row { display: flex; justify-content: center; gap: 30px; }
-        .social-icon { width: 28px; height: 28px; fill: white; transition: 0.3s; }
-        .social-icon:hover { fill: var(--gold); transform: translateY(-3px); }
-
+        
         @media (max-width: 1000px) {
             .project-row, .leadership-grid, .cert-card { grid-template-columns: 1fr !important; }
             .nav-links { display: none; }
@@ -254,16 +251,12 @@
                 </div>
             </div>
         </div>
-    </main>
+   
 
-    <footer id="contact" class="contact-footer">
-        <div class="container">
-            <div class="avail-tag">
-                <span style="display: inline-block; padding: 12px 24px; border: 2.5px solid var(--gold); border-radius: 50px; font-weight: 700;">
-                    Available for Part-time roles • Internships • Freelance projects
-                </span>
-            </div>
-            <a href="mailto:rejawana.mithila@gmail.com" class="email-link">rejawana.mithila@gmail.com</a>
+    <section id="contact" class="contact-footer">
+            <div class="container">
+                <div class="avail-tag">Available for Part-time roles • Internships • Freelance projects</div>
+                <a href="mailto:rejawana.mithila@gmail.com" class="email-link">rejawana.mithila@gmail.com</a>
             
             <div class="social-row">
                 <a href="https://linkedin.com/in/rejawanachowdhurymithila" target="_blank">
@@ -277,7 +270,9 @@
                 </a>
             </div>
         </div>
-    </footer>
+        </section>
+
+</main>
 
     <div id="imageModal" onclick="this.style.display='none'" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.95); z-index: 2000; justify-content: center; align-items: center;"><img id="modalImg" src="" style="max-width: 90%; max-height: 90%; border-radius: 10px;"></div>
 
