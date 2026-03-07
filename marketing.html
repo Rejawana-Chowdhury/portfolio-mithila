@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Marketing & Storytelling | Mithila</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0f172a; --gold: #b59410; --slate: #475569; --offwhite: #f8fafc;
+            --white: #ffffff; --bg: var(--offwhite); --text: #1e293b;
+            --card-bg: var(--white); --nav-bg: rgba(255, 255, 255, 0.98);
+            --border: rgba(0,0,0,0.08); --shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+        [data-theme="dark"] {
+            --bg: #0f172a; --text: #f1f5f9; --card-bg: #1e293b;
+            --nav-bg: rgba(15, 23, 42, 0.98); --white: #1e293b; --slate: #94a3b8;
+            --border: rgba(255,255,255,0.1); --shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; transition: background 0.4s ease; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+
+        .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 25px; }
+
+        /* NAV STYLING */
+        nav { position: fixed; top: 0; width: 100%; padding: 20px 0; z-index: 1000; background: var(--nav-bg); backdrop-filter: blur(15px); border-bottom: 1px solid var(--border); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: 'Playfair Display'; font-size: 1.6rem; font-weight: 700; color: var(--navy); text-decoration: none; }
+        .logo span { color: var(--gold); }
+        [data-theme="dark"] .logo { color: white; }
+        .nav-links { display: flex; list-style: none; gap: 30px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; }
+        .resume-btn { border: 1.5px solid var(--gold); padding: 8px 18px; border-radius: 4px; color: var(--gold) !important; }
+
+        /* MUSIC CONTROLLER (Restored) */
+        #music-control { position: fixed; bottom: 30px; left: 30px; z-index: 2000; background: var(--navy); border: 1px solid var(--gold); padding: 12px 20px; border-radius: 40px; color: var(--gold); cursor: pointer; display: flex; align-items: center; gap: 10px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+
+        /* HEADER */
+        .page-header { padding: 160px 0 80px; background: var(--navy); color: white; text-align: center; clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); }
+        .header-tag { color: var(--gold); text-transform: uppercase; letter-spacing: 3px; font-weight: 700; font-size: 0.8rem; margin-bottom: 10px; display: block; }
+        .page-header h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+
+        /* THE NARRATIVE (Restored Text & Style) */
+        .story-section { padding: 80px 0; }
+        .section-title { font-size: 2.5rem; margin-bottom: 40px; position: relative; display: inline-block; }
+        .section-title::after { content: ''; position: absolute; left: 0; bottom: -5px; width: 60%; height: 3px; background: var(--gold); }
+        
+        .story-content { font-family: 'Playfair Display', serif; font-size: 1.15rem; line-height: 1.9; font-style: italic; color: var(--slate); text-align: justify; }
+        .img-float-right { float: right; width: 35%; margin: 10px 0 30px 40px; border-radius: 10px; border: 5px solid var(--white); box-shadow: var(--shadow); }
+
+        /* PROJECT HIGHLIGHTS */
+        .project-card { background: var(--card-bg); border-radius: 15px; overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow); margin-top: 50px; }
+        .video-thumb { position: relative; display: block; aspect-ratio: 16/9; overflow: hidden; background: #000; }
+        .video-thumb img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: 0.5s; }
+        .video-thumb:hover img { opacity: 0.4; transform: scale(1.03); }
+        .play-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; border: 2px solid var(--gold); padding: 10px 20px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; background: rgba(0,0,0,0.4); pointer-events: none; }
+
+        .project-details { padding: 40px; }
+        .client-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+        .client-logo { width: 50px; height: 50px; border-radius: 50%; border: 1px solid var(--border); }
+        .stat-badge { display: inline-block; padding: 4px 12px; background: rgba(181, 148, 16, 0.1); color: var(--gold); font-weight: 700; font-size: 0.7rem; border-radius: 4px; margin-right: 8px; text-transform: uppercase; }
+        .desc-quote { border-left: 4px solid var(--gold); padding-left: 25px; margin-top: 20px; font-size: 0.95rem; font-style: normal; }
+
+        /* FOOTER */
+        .footer { background: var(--navy); padding: 100px 0; text-align: center; color: white; margin-top: 100px; }
+        .footer a { color: white; text-decoration: none; font-family: 'Playfair Display'; font-size: 2rem; }
+        .theme-btn { background: none; border: none; color: var(--gold); cursor: pointer; font-size: 1.2rem; }
+
+        @media (max-width: 768px) {
+            .img-float-right { width: 100%; float: none; margin: 20px 0; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body id="body">
+
+    <audio id="bgMusic" loop><source src="soothing-track.mp3" type="audio/mpeg"></audio>
+
+    <div id="music-control" onclick="toggleMusic()">
+        <span id="music-icon">♫</span>
+        <span id="music-text">Begin Experience</span>
+    </div>
+
+    <nav>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">MITHILA<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pr.html">PR</a></li>
+                <li><a href="marketing.html" style="color:var(--gold)">Marketing</a></li>
+                <li><button class="theme-btn" onclick="toggleTheme()" id="themeIcon">🌙</button></li>
+                <li><a href="#" class="resume-btn">Resume</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <span class="header-tag">Professional Showcase</span>
+            <h1>Marketing & Storytelling</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="story-section">
+            <h2 class="section-title">The Narrative</h2>
+            <div class="story-content">
+                <img src="story-left.jpg" alt="Mithila" class="img-float-right">
+                <p>There resides a tree skeleton in the palms of our hands—that’s what I grew up believing. When I pressed my palms together, I saw branches in those scattered lines. An old tree. Leafless. Waiting. I used to wonder if winter was the only season in human life.</p>
+                <br>
+                <p>I drew suns in blue, flowers in impossible shapes, and forests inspired by 'রুশদেশের উপকথা'. A single word could unfold an entire universe in my mind. I would spend hours narrating those imaginary worlds to my mother—much to her exhaustion. Creation, for me, was never an activity. It was instinct.</p>
+                <br>
+                <p>Painting taught me flow. Music taught me rhythm. Even leaving pickles to dry on the rooftop taught me patience, and gratitude for air, for time, for process. <strong>That is how I understand brands.</strong></p>
+                <br>
+                <p>I don’t see products. I see seasons. I see roots. I see the silent winters before a spring. Marketing, to me, is not persuasion—it is interpretation. It is finding the story already living beneath the surface and giving it language.</p>
+                <br>
+                <p>And here I am, translating heartbeats into narratives people recognize as their own.</p>
+            </div>
+        </section>
+
+        <h2 class="section-title" style="margin-top: 60px;">Project Highlights</h2>
+        <div class="project-card">
+            <a href="https://web.facebook.com/HomelyInterior.Ltd/videos/1113501406687012/" target="_blank" class="video-thumb">
+                <img src="homely_thumb.png" alt="Homely Interior">
+                <div class="play-overlay">Watch Video</div>
+            </a>
+            <div class="project-details">
+                <div class="client-header">
+                    <img src="homely-logo.png" alt="Logo" class="client-logo">
+                    <div>
+                        <h3 style="color: var(--navy);">Fueling the Comeback</h3>
+                        <p style="font-size: 0.8rem; color: var(--gold); font-weight: 700;">Homely Interior Limited</p>
+                    </div>
+                </div>
+                <div class="tag-group">
+                    <span class="stat-badge">1.1M Views</span>
+                    <span class="stat-badge">Script & Screenplay</span>
+                    <span class="stat-badge">Brand Strategy</span>
+                </div>
+                <div class="desc-quote">
+                    <p>Led the ideation, script, and screenplay for a narrative driven sponsorship campaign at the BracU Premier League. Centered the story on the team captain’s past setbacks, reframing failure as resilience. Strategically positioned Homely Interior as the brand that believed in the team before victory — fueling their comeback both on and off the field.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p style="color: var(--gold); text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 20px;">Let's Connect</p>
+            <a href="mailto:rejawana.mithila@gmail.com">rejawana.mithila@gmail.com</a>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle Logic
+        function applyTheme(theme) {
+            const body = document.getElementById('body');
+            const icon = document.getElementById('themeIcon');
+            if (theme === 'dark') {
+                body.setAttribute('data-theme', 'dark');
+                icon.innerText = '☀️';
+            } else {
+                body.removeAttribute('data-theme');
+                icon.innerText = '🌙';
+            }
+        }
+        applyTheme(localStorage.getItem('theme') || 'light');
+        function toggleTheme() {
+            const isDark = document.body.hasAttribute('data-theme');
+            const newTheme = isDark ? 'light' : 'dark';
+            localStorage.setItem('theme', newTheme);
+            applyTheme(newTheme);
+        }
+
+        // Music Logic (Restored)
+        const music = document.getElementById('bgMusic');
+        const mBtn = document.getElementById('music-text');
+        function toggleMusic() {
+            if (music.paused) { 
+                music.play(); 
+                mBtn.innerText = "Experience Active"; 
+                mBtn.style.color = "#ffffff";
+            } else { 
+                music.pause(); 
+                mBtn.innerText = "Experience Paused"; 
+                mBtn.style.color = "var(--gold)";
+            }
+        }
+    </script>
+</body>
+</html>
