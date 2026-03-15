@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>About | Rejawana Chowdhury Mithila</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <script>
+        (function() {
+            if (localStorage.getItem('theme') === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+
+    <style>
+        :root {
+            --navy: #0f172a; --gold: #b59410; --slate: #475569; --offwhite: #f8fafc;
+            --white: #ffffff; --bg: var(--offwhite); --text: #1e293b;
+            --card-bg: var(--white); --nav-bg: rgba(255, 255, 255, 0.98);
+        }
+        [data-theme="dark"] {
+            --bg: #0f172a; --text: #f1f5f9; --card-bg: #1e293b;
+            --nav-bg: rgba(15, 23, 42, 0.98);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; transition: background 0.3s ease; overflow-x: hidden; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+        .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 25px; }
+
+        /* Navigation */
+        nav { position: fixed; top: 0; width: 100%; padding: 15px 0; z-index: 1000; background: var(--nav-bg); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo-area { display: flex; align-items: center; gap: 15px; }
+        .back-btn { color: var(--gold); text-decoration: none; font-size: 1.2rem; transition: 0.3s; cursor: pointer; }
+        .back-btn:hover { transform: translateX(-5px); }
+        .logo { font-family: 'Playfair Display'; font-size: 1.4rem; font-weight: 700; color: var(--navy); text-decoration: none; letter-spacing: 1px; }
+        [data-theme="dark"] .logo { color: white; }
+
+        /* About Hero */
+        .about-hero { padding: 160px 0 80px; background: var(--navy); color: white; position: relative; }
+        [data-theme="dark"] .about-hero { box-shadow: 0 10px 40px rgba(181, 148, 16, 0.25); }
+        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .about-image img { width: 100%; border-radius: 4px; border: 1px solid rgba(181,148,16,0.3); box-shadow: 15px 15px 0px var(--gold); }
+        .about-intro h1 { font-size: clamp(2.5rem, 5vw, 4rem); color: var(--gold); margin-bottom: 20px; }
+        .mission-vision { margin-top: 30px; display: grid; gap: 20px; }
+        .mv-item h4 { color: var(--gold); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 5px; }
+
+        /* Story Section */
+        .story-section { padding: 100px 0; }
+        .story-content { max-width: 800px; margin: 0 auto; }
+        .story-content p { margin-bottom: 25px; font-size: 1.1rem; opacity: 0.9; }
+
+        /* Professional Footsteps Slider */
+        .slider-section { padding: 60px 0; background: var(--card-bg); border-top: 1px solid rgba(181,148,16,0.1); border-bottom: 1px solid rgba(181,148,16,0.1); }
+        .slider-title { text-align: center; margin-bottom: 40px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; color: var(--gold); font-weight: 700; }
+        .logo-slider { overflow: hidden; white-space: nowrap; position: relative; }
+        .logo-track { display: inline-flex; animation: scroll 30s linear infinite; }
+        .logo-track img { height: 50px; margin: 0 40px; filter: grayscale(1); opacity: 0.6; transition: 0.3s; }
+        .logo-track img:hover { filter: grayscale(0); opacity: 1; }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Interests & Photos */
+        .personal-section { padding: 100px 0; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; }
+        .interests-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 30px; }
+        .interests-list li { display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--slate); }
+        [data-theme="dark"] .interests-list li { color: #cbd5e1; }
+        .interests-list li i { color: var(--gold); font-size: 0.7rem; }
+
+        .photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .photo-grid img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; }
+
+        /* CTA Bridge */
+        .cta-bridge { padding: 100px 0; background: var(--navy); color: white; text-align: center; position: relative; }
+        [data-theme="dark"] .cta-bridge { box-shadow: 0 -10px 40px rgba(181, 148, 16, 0.25); }
+        .cta-bridge h2 { font-size: 2.5rem; margin-bottom: 30px; }
+        .explore-btn { display: inline-flex; align-items: center; gap: 15px; color: var(--gold); text-decoration: none; font-size: 1.5rem; font-family: 'Playfair Display'; transition: 0.3s; }
+        .explore-btn:hover { transform: translateX(10px); }
+
+        @media (max-width: 850px) {
+            .hero-grid, .personal-section { grid-template-columns: 1fr; }
+            .about-image { order: 2; }
+            .about-intro { order: 1; text-align: center; }
+            .interests-list { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-container">
+            <div class="logo-area">
+                <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i></a>
+                <a href="index.html" class="logo">MITHILA</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="about-hero">
+        <div class="container hero-grid">
+            <div class="about-intro">
+                <h1>Beyond the Code & Content.</h1>
+                <p>Strategic by design, creative by nature. I bridge the gap between technical logic and human storytelling.</p>
+                
+                <div class="mission-vision">
+                    <div class="mv-item">
+                        <h4>Mission</h4>
+                        <p>To transform complex ideas into organized, impactful actions through strategic communication and hands-on execution.</p>
+                    </div>
+                    <div class="mv-item">
+                        <h4>Vision</h4>
+                        <p>To lead narratives where innovation meets empathy, creating bridges between technology and the people who use it.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="about_profile.jpg" alt="Rejawana Chowdhury Mithila">
+            </div>
+        </div>
+    </header>
+
+    <section class="story-section">
+        <div class="container story-content">
+            <p>I am a CSE undergraduate who found my true calling at the intersection of communication and operations. My journey is defined by a refusal to stay within a single box; whether I am managing high-stakes national events or lending my voice to a documentary, I focus on clarity, impact, and structure.</p>
+            <p>I believe that every brand, project, or event has a heartbeat. My job is to find that heartbeat and translate it into a narrative that people recognize as their own. From the logistical precision required in operations to the emotional resonance of public speaking, I enjoy the challenge of turning a vision into reality.</p>
+        </div>
+    </section>
+
+    <section class="slider-section">
+        <div class="slider-title">Professional Footsteps</div>
+        <div class="logo-slider">
+            <div class="logo-track">
+                <img src="logo1.png" alt="Client 1">
+                <img src="logo2.png" alt="Client 2">
+                <img src="logo3.png" alt="Client 3">
+                <img src="logo4.png" alt="Client 4">
+                <img src="logo5.png" alt="Client 5">
+                <img src="logo1.png" alt="Client 1">
+                <img src="logo2.png" alt="Client 2">
+                <img src="logo3.png" alt="Client 3">
+                <img src="logo4.png" alt="Client 4">
+                <img src="logo5.png" alt="Client 5">
+            </div>
+        </div>
+    </section>
+
+    <section class="container personal-section">
+        <div class="personal-info">
+            <h2>Interests & Inspirations</h2>
+            <p>When I'm not strategizing or speaking, you can find me exploring these interests that keep my creativity fueled:</p>
+            <ul class="interests-list">
+                <li><i class="fas fa-circle"></i> Storyboarding & Copywriting</li>
+                <li><i class="fas fa-circle"></i> Exploring Culinary Business Models</li>
+                <li><i class="fas fa-circle"></i> Tech Ethics & Innovation</li>
+                <li><i class="fas fa-circle"></i> Voice Acting & Characterization</li>
+                <li><i class="fas fa-circle"></i> Community Building</li>
+                <li><i class="fas fa-circle"></i> Continuous Learning in CSE</li>
+            </ul>
+        </div>
+        <div class="photo-grid">
+            <img src="action1.jpg" alt="On Stage">
+            <img src="action2.jpg" alt="At Work">
+            <img src="action3.jpg" alt="In Studio">
+            <img src="action4.jpg" alt="Collaboration">
+        </div>
+    </section>
+
+    <section class="cta-bridge">
+        <div class="container">
+            <h2>Ready to see what I build?</h2>
+            <a href="index.html#expertise" class="explore-btn">
+                Explore My Expertise <i class="fas fa-long-arrow-alt-right"></i>
+            </a>
+        </div>
+    </section>
+
+</body>
+</html>
