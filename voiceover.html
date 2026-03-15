@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Voiceover | Rejawana Chowdhury Mithila</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <script>
+        (function() {
+            if (localStorage.getItem('theme') === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+
+    <style>
+        :root {
+            --navy: #0f172a; --gold: #b59410; --slate: #475569; --offwhite: #f8fafc;
+            --white: #ffffff; --bg: var(--offwhite); --text: #1e293b;
+            --card-bg: var(--white); --nav-bg: rgba(255, 255, 255, 0.98);
+        }
+        [data-theme="dark"] {
+            --bg: #0f172a; --text: #f1f5f9; --card-bg: #1e293b;
+            --nav-bg: rgba(15, 23, 42, 0.98); --slate: #94a3b8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; font-size: 0.85rem; transition: background 0.3s ease; overflow-x: hidden; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+        html { scroll-behavior: smooth; }
+        .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 25px; }
+
+        /* Navigation */
+        nav { position: fixed; top: 0; width: 100%; padding: 15px 0; z-index: 1000; background: var(--nav-bg); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo-area { display: flex; align-items: center; gap: 15px; }
+        .back-btn { color: var(--gold); text-decoration: none; font-size: 1.2rem; transition: 0.3s; cursor: pointer; }
+        .logo { font-family: 'Playfair Display'; font-size: 1.4rem; font-weight: 700; color: var(--navy); text-decoration: none; letter-spacing: 1px; }
+        [data-theme="dark"] .logo { color: white; }
+
+        /* Hamburger Styles */
+        .menu-btn { display: none; font-size: 1.5rem; color: var(--gold); cursor: pointer; z-index: 1002; }
+
+        .nav-links { display: flex; list-style: none; gap: 25px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        [data-theme="dark"] .nav-links a { color: white; }
+        .nav-links a:hover { color: var(--gold); }
+
+        .dropdown { position: relative; }
+        .dropdown-menu { 
+            position: absolute; top: 100%; left: 0; background: var(--card-bg); 
+            min-width: 220px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+            border-top: 3px solid var(--gold); display: none; list-style: none; 
+            padding: 10px 0; z-index: 1001; 
+        }
+        .dropdown:hover .dropdown-menu { display: block; }
+        .dropdown-menu li a { padding: 10px 20px; display: block; font-size: 0.75rem; color: var(--text) !important; text-transform: none; letter-spacing: 0.5px; }
+        .dropdown-menu li a:hover { background: rgba(181, 148, 16, 0.1); color: var(--gold) !important; }
+
+        .resume-btn { border: 1.5px solid var(--gold); padding: 8px 16px; border-radius: 4px; color: var(--gold) !important; }
+
+        /* Page Header & Glow */
+        .page-header { padding: 160px 0 100px; background: var(--navy); color: white; text-align: center; position: relative; z-index: 1; }
+        [data-theme="dark"] .page-header { box-shadow: 0 25px 50px -15px rgba(181, 148, 16, 0.35); }
+        .header-tag { background: var(--gold); color: white; padding: 6px 15px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; display: inline-block; margin-bottom: 20px; border-radius: 2px; }
+        .page-header h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); color: var(--gold); margin-bottom: 20px; }
+
+        /* Content Sections */
+        .section-title-wrap { text-align: center; margin: 60px 0 40px; }
+        .section-title { font-size: 2.2rem; border-bottom: 2px solid var(--gold); display: inline-block; padding-bottom: 10px; }
+        
+        .project-master-container {
+            background: var(--card-bg); padding: 40px; border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08); border: 1px solid rgba(181, 148, 16, 0.1); margin-bottom: 60px;
+        }
+
+        .video-highlight-container { 
+            position: relative; width: 100%; max-width: 850px; margin: 0 auto 30px; 
+            border-radius: 8px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.2); 
+            border-left: 6px solid var(--gold); cursor: pointer; background: #000;
+        }
+        .video-thumbnail { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; transition: 0.6s; }
+        .video-highlight-container:hover .video-thumbnail { transform: scale(1.03); }
+        .video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.5); display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.4s; }
+        .video-highlight-container:hover .video-overlay { opacity: 1; }
+        .overlay-text { color: white; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; border: 2px solid white; padding: 12px 30px; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px); }
+
+        .project-info { text-align: center; }
+        .project-info h2 { font-size: 2.2rem; margin-bottom: 5px; }
+        [data-theme="dark"] .project-info h2, [data-theme="dark"] .project-info h3, [data-theme="dark"] h4 { color: white; }
+        .client-name { color: var(--gold); font-weight: 600; font-size: 1rem; margin-bottom: 15px; }
+        
+        /* Badges */
+        .stat-badge { display: inline-block; padding: 4px 12px; background: rgba(181, 148, 16, 0.1); border: 1px solid var(--gold); color: var(--gold); font-weight: 700; font-size: 0.7rem; margin: 5px; border-radius: 4px; text-transform: uppercase; }
+
+        .description-box { border-left: 4px solid var(--gold); padding: 20px 30px; background: rgba(181, 148, 16, 0.05); margin: 25px auto 0; max-width: 850px; text-align: left; }
+
+        .other-projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-bottom: 80px; }
+        .other-project-card { background: var(--card-bg); padding: 25px; border-radius: 12px; border: 1px solid rgba(181, 148, 16, 0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+
+        /* Contact Section */
+        .contact-section { padding: 120px 0; background: var(--navy); color: white; text-align: center; position: relative; z-index: 1; }
+        [data-theme="dark"] .contact-section { box-shadow: 0 -25px 50px -15px rgba(181, 148, 16, 0.35); }
+        .availability-tag { display: inline-block; padding: 8px 20px; border: 1px solid var(--gold); color: var(--gold); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; }
+        .email-link { font-family: 'Playfair Display'; font-size: clamp(1.5rem, 4vw, 3rem); color: white; text-decoration: none; display: block; margin-bottom: 40px; transition: 0.3s; word-break: break-all; }
+        .email-link:hover { color: var(--gold); }
+        
+        .social-row { display: flex; justify-content: center; gap: 25px; }
+        .social-icon { 
+            width: 50px; height: 50px; border-radius: 50%; border: 1px solid rgba(181, 148, 16, 0.3);
+            display: flex; align-items: center; justify-content: center; color: white;
+            text-decoration: none; transition: 0.3s; font-size: 1.2rem;
+        }
+        .social-icon:hover { background: var(--gold); border-color: var(--gold); transform: translateY(-5px); }
+
+        /* Mobile Adjustments */
+        @media (max-width: 850px) {
+            .menu-btn { display: block; }
+            .nav-links {
+                position: fixed; top: 0; right: -100%; height: 100vh; width: 80%; 
+                background: var(--nav-bg); flex-direction: column; justify-content: center;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.1); transition: 0.4s; z-index: 1001;
+            }
+            .nav-links.active { right: 0; }
+            .dropdown-menu { position: static; box-shadow: none; display: block; border: none; text-align: center; background: transparent; }
+            
+            .other-projects-grid { grid-template-columns: 1fr; gap: 30px; }
+            .project-master-container { padding: 25px 15px; }
+            .section-title { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-container">
+            <div class="logo-area">
+                <a href="javascript:history.back()" class="back-btn"><i class="fas fa-arrow-left"></i></a>
+                <a href="index.html" class="logo">M.</a>
+            </div>
+            
+            <div class="menu-btn" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+                <li class="dropdown">
+                    <a href="index.html#expertise">Expertise</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="pr.html">PR & Communications</a></li>
+                        <li><a href="marketing.html">Marketing & Storytelling</a></li>
+                        <li><a href="strategy.html">Operations & Planning</a></li>
+                        <li><a href="voiceover.html">Voiceover</a></li>
+                        <li><a href="speaking.html">Anchoring & Public Speaking</a></li>
+                    </ul>
+                </li>
+                <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+                <li><a href="https://www.linkedin.com/in/rejawanachowdhurymithila" target="_blank">LinkedIn</a></li>
+                <li><a href="YOUR_DRIVE_LINK" target="_blank" class="resume-btn">My Resume</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <div class="header-tag">Voice & Narrative</div>
+            <h1>Voiceover</h1>
+            <p style="max-width: 800px; margin: 0 auto; opacity: 0.9;">Professional English and Bengali narration for documentaries, commercials, and government projects.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="section-title-wrap">
+            <h2 class="section-title">Featured Project</h2>
+        </div>
+
+        <div class="project-master-container">
+            <div class="video-highlight-container" onclick="window.open('https://drive.google.com/file/d/1TXjlrgg5S-iW3b1KyjtEHKuxeDligf4Q/view?usp=sharing', '_blank')">
+                <img src="rohingya_thumb.png" alt="Rohingya Crisis Document" class="video-thumbnail">
+                <div class="video-overlay"><span class="overlay-text">Watch Video</span></div>
+            </div>
+            <div class="project-info">
+                <h2>Rohingya Crisis Narrative</h2>
+                <p class="client-name">Ministry of Disaster Management, Bangladesh</p>
+                <div class="badges">
+                    <span class="stat-badge">Government Project</span>
+                    <span class="stat-badge">Rohingya Crisis</span>
+                    <span class="stat-badge">International Narrative</span>
+                </div>
+                <div class="description-box">
+                    <h4>Narrative Objective</h4>
+                    <p style="color: var(--slate); font-size: 0.85rem; line-height: 1.6;">
+                        Provided the English narration for an official state documentary outlining the humanitarian efforts and logistical challenges of the Rohingya refugee crisis. The tone required a balance of solemnity, professional clarity, and global urgency.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title-wrap">
+            <h2 class="section-title">Other Projects</h2>
+        </div>
+        
+        <div class="other-projects-grid">
+            <div class="other-project-card">
+                <div class="video-highlight-container" onclick="window.open('https://www.facebook.com/uiuinfo/videos/1585615235363405/', '_blank')">
+                    <img src="other_thumb1.png" alt="Commercial Project" class="video-thumbnail">
+                    <div class="video-overlay"><span class="overlay-text">Watch Video</span></div>
+                </div>
+                <div class="project-info">
+                    <h3 style="font-size: 1.4rem; margin-top:15px;">Celebrating Science at UIU</h3>
+                    <p class="client-name">United International University</p>
+                    <div class="badges">
+                        <span class="stat-badge">Academic Documentary</span>
+                        <span class="stat-badge">Research Narrative</span>
+                    </div>
+                    <div class="description-box" style="padding: 15px; font-size: 0.8rem; border-left-width: 2px;">
+                        Narration for a UIU tribute video showcasing the university’s research, innovation, and student-driven scientific initiatives on World Science Day.
+                    </div>
+                </div>
+            </div>
+
+            <div class="other-project-card">
+                <div class="video-highlight-container" onclick="window.open('https://www.facebook.com/share/v/18GNfjUnjg/', '_blank')">
+                    <img src="other_thumb2.png" alt="Corporate Narration" class="video-thumbnail">
+                    <div class="video-overlay"><span class="overlay-text">Watch Video</span></div>
+                </div>
+                <div class="project-info">
+                    <h3 style="font-size: 1.4rem; margin-top:15px;">Narrating Climate Leadership</h3>
+                    <p class="client-name">United International University</p>
+                    <div class="badges">
+                        <span class="stat-badge">Environmental Feature</span>
+                        <span class="stat-badge">Impact Story</span>
+                    </div>
+                    <div class="description-box" style="padding: 15px; font-size: 0.8rem; border-left-width: 2px;">
+                        Voiceover for a UIU feature presenting Amanullah Porag, a global environment activist and EDS student from the School of Humanities & Social Sciences, sharing his vision for environmental sustainability, humanitarian values, and youth-driven impact on World Humanitarian Day.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="availability-tag">Available for Part-time Roles • Internships • Freelance Projects</div>
+            <a href="mailto:rejawana.mithila@gmail.com" class="email-link">rejawana.mithila@gmail.com</a>
+           <div class="social-row">
+                <a href="https://www.facebook.com/mithila.chowdhury.144181" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.linkedin.com/in/rejawanachowdhurymithila" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://wa.me/8801601956511" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>
