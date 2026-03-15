@@ -17,7 +17,7 @@
             --nav-bg: rgba(15, 23, 42, 0.98);
         }
 
-        /* Essential Reset */
+        /* Essential Reset to prevent "Scattering" */
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
         html, body { overflow-x: hidden; width: 100%; }
         body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; transition: background 0.3s ease; }
@@ -37,9 +37,11 @@
         .resume-btn:hover { background: var(--gold); color: white !important; }
         .hamburger { display: none; font-size: 1.8rem; cursor: pointer; }
 
-        /* Hero & Dark Glow */
+        /* Hero - Flex Logic for Stability */
         .hero { min-height: 100vh; display: flex; align-items: center; background: var(--navy); color: white; padding: 120px 0 80px; position: relative; }
+        /* Golden Glow Below Hero */
         [data-theme="dark"] .hero { box-shadow: 0 10px 40px rgba(181, 148, 16, 0.25); }
+        
         .hero-flex { display: flex; flex-wrap: wrap; align-items: center; gap: 40px; }
         .hero-text { flex: 1; min-width: 300px; }
         .hero-text span { color: var(--gold); text-transform: uppercase; letter-spacing: 3px; font-weight: 700; font-size: 0.8rem; display: block; margin-bottom: 15px; }
@@ -49,15 +51,7 @@
         .hero-image-area { flex: 0.8; min-width: 300px; display: flex; justify-content: center; }
         .hero-img { width: 100%; max-width: 400px; height: auto; border: 10px solid rgba(255,255,255,0.05); box-shadow: 20px 20px 0px var(--gold); }
 
-        /* About Section */
-        .about-section { padding: 100px 0; background: var(--navy); color: white; position: relative; }
-        [data-theme="dark"] .about-section { box-shadow: 0 0px 40px rgba(181, 148, 16, 0.2); }
-        .about-content { max-width: 900px; margin: 0 auto; }
-        .about-section h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 30px; color: var(--gold); }
-        .about-text p { margin-bottom: 20px; font-size: 1.05rem; color: rgba(255,255,255,0.9); }
-        .about-cta { color: var(--gold); font-weight: 600; border-bottom: 1px solid var(--gold); display: inline-block; padding-bottom: 5px; margin-top: 10px; text-decoration: none; font-size: 0.9rem; }
-
-        /* Expertise Grid */
+        /* Expertise Grid - Fixed Alignment */
         .expertise { padding: 100px 0; }
         .expertise h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 50px; position: relative; display: inline-block; }
         .expertise h2::after { content: ''; display: block; width: 60%; height: 4px; background: var(--gold); margin-top: 10px; }
@@ -84,20 +78,24 @@
         .exp-card h3 { font-size: 1.5rem; margin-bottom: 15px; }
         .exp-card p { line-height: 1.4; color: var(--gold); font-size: 0.9rem; text-align: left; }
 
-        /* Contact Section & Glow */
+        /* Contact Section */
         .contact-section { padding: 100px 0; background: var(--navy); color: white; text-align: center; position: relative; }
+        /* Golden Glow Above Contact */
         [data-theme="dark"] .contact-section { box-shadow: 0 -10px 40px rgba(181, 148, 16, 0.25); }
+        
         .availability-tag { display: inline-block; padding: 8px 20px; border: 1px solid var(--gold); color: var(--gold); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; }
         .email-link { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 5vw, 3.5rem); color: white; text-decoration: none; display: block; margin-bottom: 20px; transition: 0.3s; word-break: break-all; }
         .email-link:hover { color: var(--gold); }
 
+        /* Social Icons Styling */
         .social-links { display: flex; justify-content: center; gap: 25px; margin-top: 20px; }
         .social-links a { color: white; font-size: 1.8rem; transition: 0.3s ease; }
         .social-links a:hover { color: var(--gold); transform: translateY(-5px); }
 
-        /* Theme Toggle */
+        /* Theme Toggle Control */
         .theme-toggle { position: fixed; bottom: 30px; right: 30px; background: var(--gold); color: white; border: none; width: 55px; height: 55px; border-radius: 50%; cursor: pointer; z-index: 3000; box-shadow: 0 5px 15px rgba(0,0,0,0.2); font-size: 1.2rem; display: flex; align-items: center; justify-content: center; }
 
+        /* THE FIX FOR MOBILE & SCATTERED VIEW */
         @media (max-width: 850px) {
             .hamburger { display: block; }
             .nav-links { 
@@ -132,7 +130,6 @@
             <a href="index.html" class="logo">M.</a>
             <div class="hamburger" onclick="toggleMenu()">☰</div>
             <ul class="nav-links" id="navMenu">
-                <li><a href="#about" onclick="toggleMenu()">About</a></li>
                 <li><a href="#expertise" onclick="toggleMenu()">Expertise</a></li>
                 <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
                 <li><a href="https://www.linkedin.com/in/rejawanachowdhurymithila" target="_blank">LinkedIn</a></li>
@@ -146,27 +143,10 @@
             <div class="hero-text">
                 <span>Communications • Strategy • Presence</span>
                 <h1>Rejawana Chowdhury Mithila</h1>
-                <p>Techie with a creative and strategic mind!</p>
+                <p>Brand Marketing Enthusiast | Strategic Communicator</p>
             </div>
             <div class="hero-image-area">
                 <img src="profile.jpg" alt="Mithila Profile" class="hero-img">
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="about-section">
-        <div class="container">
-            <div class="about-content">
-                <h2>Turning Ideas into Organized Action</h2>
-                <div class="about-text">
-                    <p>Hi! I’m <strong>Rejawana Chowdhury Mithila</strong>, a CSE undergraduate with a unique multi-disciplinary background in communications, operations management, public relations, and business development. I specialize in combining creativity with strategy to drive hands-on execution.</p>
-                    
-                    <p>From completing a year-long apprenticeship at UIU’s PRO & Communications Office to serving as Head of Operations at the UIU Computer Club, I've managed large-scale national events like UIU CSE Fest 2025 and UIU HackDay 2026. Beyond university, I've co-founded a food business and continue to work as a voiceover artist and public speaker.</p>
-                    
-                    <p>I thrive where technology meets narrative impact. You can explore my specific fields of experience and key areas of <strong>expertise</strong> in detail below.</p>
-                    
-                    <a href="#expertise" class="about-cta">Explore my Expertise <i class="fas fa-arrow-down"></i></a>
-                </div>
             </div>
         </div>
     </section>
@@ -178,7 +158,7 @@
                 <a href="pr.html" class="exp-link">
                     <div class="exp-card">
                         <h3>PR & Communications</h3>
-                        <p>Building bridges between brands and the press through strategic outreach.</p>
+                        <p>Building bridges between brands and the people through strategic outreach.</p>
                     </div>
                 </a>
                 <a href="marketing.html" class="exp-link">
@@ -190,7 +170,7 @@
                 <a href="strategy.html" class="exp-link">
                     <div class="exp-card">
                         <h3>Operations & Planning</h3>
-                        <p>End-to-end event and campaign management along with problem solving.</p>
+                        <p>Operations and strategic planning with strong coordination and problem-solving abilities, ensuring smooth execution.</p>
                     </div>
                 </a>
                 <a href="voiceover.html" class="exp-link">
@@ -221,8 +201,8 @@
             </div>
         </div>
     </section>
-
     <script>
+        // Check local storage and apply theme on page load
         (function initTheme() {
             const savedTheme = localStorage.getItem('theme');
             const body = document.getElementById('body');
