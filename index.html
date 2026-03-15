@@ -3,212 +3,256 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Mithila | Communications • Strategy • Presence</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Rejawana Chowdhury Mithila | Communications • Strategy • Presence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         :root {
             --navy: #0f172a; --gold: #b59410; --slate: #475569; --offwhite: #f8fafc;
             --white: #ffffff; --bg: var(--offwhite); --text: #1e293b;
             --card-bg: var(--white); --nav-bg: rgba(255, 255, 255, 0.98);
-            --border: rgba(0,0,0,0.08); --shadow: 0 20px 40px rgba(0,0,0,0.05);
         }
         [data-theme="dark"] {
             --bg: #0f172a; --text: #f1f5f9; --card-bg: #1e293b;
-            --nav-bg: rgba(15, 23, 42, 0.98); --white: #1e293b; --slate: #94a3b8;
-            --border: rgba(255,255,255,0.1); --shadow: 0 20px 40px rgba(0,0,0,0.4);
+            --nav-bg: rgba(15, 23, 42, 0.98);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; transition: background 0.4s ease; overflow-x: hidden; }
-        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        /* Essential Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+        html, body { overflow-x: hidden; width: 100%; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; transition: background 0.3s ease; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.2; }
 
-        .container { width: 100%; max-width: 1300px; margin: 0 auto; padding: 0 40px; }
+        .container { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 20px; }
 
-        /* HEADER */
-        nav { position: fixed; top: 0; width: 100%; padding: 25px 0; z-index: 1000; background: var(--nav-bg); backdrop-filter: blur(15px); border-bottom: 1px solid var(--border); }
+        /* Navigation */
+        nav { position: fixed; top: 0; width: 100%; padding: 15px 0; z-index: 1000; background: var(--nav-bg); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0,0,0,0.05); }
         .nav-container { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-family: 'Playfair Display'; font-size: 1.8rem; font-weight: 700; color: var(--navy); text-decoration: none; letter-spacing: -1px; }
-        .logo span { color: var(--gold); font-style: italic; }
-        [data-theme="dark"] .logo { color: white; }
-
-        .nav-right { display: flex; align-items: center; gap: 45px; }
-        .nav-links { display: flex; list-style: none; gap: 35px; align-items: center; }
-        .nav-links a { text-decoration: none; color: var(--text); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; transition: 0.3s; }
-        .nav-links a:hover { color: var(--gold); }
+        .logo { font-family: 'Playfair Display'; font-size: 1.4rem; font-weight: 700; color: var(--navy); text-decoration: none; letter-spacing: 1px; }
+        [data-theme="dark"] .logo { color: var(--white); }
         
-        .dropdown { position: relative; cursor: pointer; }
-        .dropdown-content { position: absolute; top: 100%; right: 0; background: var(--card-bg); min-width: 260px; box-shadow: var(--shadow); display: none; border-radius: 8px; padding: 15px 0; border: 1px solid var(--border); margin-top: 15px; }
-        .dropdown:hover .dropdown-content { display: block; }
-        .dropdown-content a { display: block; padding: 12px 25px; text-transform: none; font-size: 0.9rem; border: none; }
-
-        .resume-btn { border: 2px solid var(--gold) !important; padding: 10px 24px !important; border-radius: 4px; color: var(--gold) !important; font-weight: 700; transition: 0.3s; }
+        .nav-links { display: flex; list-style: none; gap: 25px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
+        .resume-btn { border: 1.5px solid var(--gold) !important; padding: 8px 18px !important; border-radius: 4px; color: var(--gold) !important; transition: 0.3s; }
         .resume-btn:hover { background: var(--gold); color: white !important; }
-        .theme-btn { cursor: pointer; background: none; border: none; font-size: 1.4rem; color: var(--gold); }
+        .hamburger { display: none; font-size: 1.8rem; cursor: pointer; }
 
-        /* HERO */
-        .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 100px; }
-        .hero-flex { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: center; }
-        .hero-text span { color: var(--gold); text-transform: uppercase; letter-spacing: 4px; font-weight: 700; font-size: 0.8rem; display: block; margin-bottom: 20px; }
-        .hero-text h1 { font-size: clamp(2.8rem, 6vw, 4.8rem); color: var(--navy); line-height: 1.1; margin-bottom: 30px; }
-        [data-theme="dark"] .hero-text h1 { color: white; }
-        .hero-text p { font-size: 1.2rem; color: var(--slate); max-width: 600px; margin-bottom: 25px; }
-        .supervisor { color: var(--gold); text-decoration: none; font-weight: 700; transition: 0.3s; border-bottom: 2px solid transparent; }
-        .supervisor:hover { color: var(--navy); border-bottom: 2px solid var(--gold); }
-        [data-theme="dark"] .supervisor:hover { color: white; }
+        /* Hero & Dark Glow */
+        .hero { min-height: 100vh; display: flex; align-items: center; background: var(--navy); color: white; padding: 120px 0 80px; position: relative; }
+        [data-theme="dark"] .hero { box-shadow: 0 10px 40px rgba(181, 148, 16, 0.25); }
+        .hero-flex { display: flex; flex-wrap: wrap; align-items: center; gap: 40px; }
+        .hero-text { flex: 1; min-width: 300px; }
+        .hero-text span { color: var(--gold); text-transform: uppercase; letter-spacing: 3px; font-weight: 700; font-size: 0.8rem; display: block; margin-bottom: 15px; }
+        .hero-text h1 { font-size: clamp(2.2rem, 5vw, 4rem); color: var(--gold); margin-bottom: 20px; }
+        .hero-text p { color: rgba(255,255,255,0.8); font-size: 1.1rem; max-width: 600px; }
+        
+        .hero-image-area { flex: 0.8; min-width: 300px; display: flex; justify-content: center; }
+        .hero-img { width: 100%; max-width: 400px; height: auto; border: 10px solid rgba(255,255,255,0.05); box-shadow: 20px 20px 0px var(--gold); }
 
-        .hero-img-wrap { position: relative; width: 100%; }
-        .hero-img { width: 100%; border-radius: 20px; box-shadow: var(--shadow); position: relative; z-index: 2; border: 1px solid var(--border); }
-        .hero-img-wrap::after { content: ''; position: absolute; top: 30px; left: 30px; width: 100%; height: 100%; border: 3px solid var(--gold); border-radius: 20px; z-index: 1; }
+        /* About Section */
+        .about-section { padding: 100px 0; background: var(--navy); color: white; position: relative; }
+        [data-theme="dark"] .about-section { box-shadow: 0 0px 40px rgba(181, 148, 16, 0.2); }
+        .about-content { max-width: 900px; margin: 0 auto; }
+        .about-section h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 30px; color: var(--gold); }
+        .about-text p { margin-bottom: 20px; font-size: 1.05rem; color: rgba(255,255,255,0.9); }
+        .about-cta { color: var(--gold); font-weight: 600; border-bottom: 1px solid var(--gold); display: inline-block; padding-bottom: 5px; margin-top: 10px; text-decoration: none; font-size: 0.9rem; }
 
-        /* PILLARS */
-        .section-padding { padding: 120px 0; }
-        .section-header { margin-bottom: 70px; }
-        .section-header h2 { font-size: 3.2rem; margin-bottom: 15px; }
-        .accent-line { width: 100px; height: 6px; background: var(--gold); }
-        .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 40px; }
-        .exp-card { background: var(--card-bg); padding: 60px; border-radius: 20px; box-shadow: var(--shadow); border: 1px solid var(--border); text-decoration: none; color: inherit; transition: 0.5s cubic-bezier(0.2, 1, 0.3, 1); display: flex; flex-direction: column; height: 100%; }
-        .exp-card:hover { transform: translateY(-15px); border-color: var(--gold); }
-        .exp-card h3 { font-size: 1.8rem; margin-bottom: 20px; color: var(--gold); }
-        .exp-card p { font-size: 1.05rem; color: var(--slate); margin-bottom: 25px; flex-grow: 1; }
-        .exp-card .cta { font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; color: var(--gold); }
+        /* Expertise Grid */
+        .expertise { padding: 100px 0; }
+        .expertise h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 50px; position: relative; display: inline-block; }
+        .expertise h2::after { content: ''; display: block; width: 60%; height: 4px; background: var(--gold); margin-top: 10px; }
+        
+        .expertise-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
+            gap: 30px; 
+            align-items: stretch;
+        }
+        
+        .exp-link { text-decoration: none; color: inherit; display: flex; }
+        .exp-card { 
+            background: var(--card-bg); 
+            padding: 40px; 
+            border-top: 5px solid var(--gold); 
+            transition: 0.4s ease; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .exp-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .exp-card h3 { font-size: 1.5rem; margin-bottom: 15px; }
+        .exp-card p { line-height: 1.4; color: var(--gold); font-size: 0.9rem; text-align: left; }
 
-        /* CONTACT FOOTER */
-        .contact-footer { padding: 140px 0; text-align: center; background: var(--navy); color: white; clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%); margin-top: 50px; }
-        .avail-tag { display: inline-block; padding: 12px 30px; border: 1px solid var(--gold); color: var(--gold); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; }
-        .email-link { font-family: 'Playfair Display'; font-size: clamp(2.2rem, 7vw, 4.5rem); color: white; text-decoration: none; transition: 0.4s; display: block; margin-bottom: 40px; }
+        /* Contact Section & Glow */
+        .contact-section { padding: 100px 0; background: var(--navy); color: white; text-align: center; position: relative; }
+        [data-theme="dark"] .contact-section { box-shadow: 0 -10px 40px rgba(181, 148, 16, 0.25); }
+        .availability-tag { display: inline-block; padding: 8px 20px; border: 1px solid var(--gold); color: var(--gold); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; }
+        .email-link { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 5vw, 3.5rem); color: white; text-decoration: none; display: block; margin-bottom: 20px; transition: 0.3s; word-break: break-all; }
         .email-link:hover { color: var(--gold); }
 
-        .social-row { display: flex; justify-content: center; gap: 30px; align-items: center; }
-        .social-icon { width: 28px; height: 28px; fill: white; transition: 0.3s; }
-        .social-icon:hover { fill: var(--gold); transform: translateY(-3px); }
+        .social-links { display: flex; justify-content: center; gap: 25px; margin-top: 20px; }
+        .social-links a { color: white; font-size: 1.8rem; transition: 0.3s ease; }
+        .social-links a:hover { color: var(--gold); transform: translateY(-5px); }
 
-        @media (max-width: 1000px) {
-            .hero-flex { grid-template-columns: 1fr; text-align: center; }
-            .hero-img-wrap { max-width: 450px; margin: 60px auto 0; }
-            .nav-links { display: none; }
+        /* Theme Toggle */
+        .theme-toggle { position: fixed; bottom: 30px; right: 30px; background: var(--gold); color: white; border: none; width: 55px; height: 55px; border-radius: 50%; cursor: pointer; z-index: 3000; box-shadow: 0 5px 15px rgba(0,0,0,0.2); font-size: 1.2rem; display: flex; align-items: center; justify-content: center; }
+
+        @media (max-width: 850px) {
+            .hamburger { display: block; }
+            .nav-links { 
+                display: none; flex-direction: column; position: absolute; top: 100%; left: 0; 
+                width: 100%; background: var(--nav-bg); padding: 40px 20px; 
+                border-bottom: 2px solid var(--gold); gap: 25px; text-align: center;
+            }
+            .nav-links.active { display: flex; }
+            
+            .hero { padding-top: 100px; text-align: center; }
+            .hero-text { order: 1; width: 100%; }
+            .hero-text p { margin: 0 auto; text-align: center; }
+            .hero-image-area { order: 2; width: 100%; }
+            .hero-img { max-width: 280px; box-shadow: 12px 12px 0px var(--gold); }
+            
+            .expertise { padding: 80px 0; }
+            .expertise h2 { width: 100%; text-align: center; }
+            .expertise-grid { grid-template-columns: 1fr; gap: 20px; }
+            .exp-card { padding: 30px; text-align: center; }
+            .exp-card p { text-align: center; }
         }
     </style>
 </head>
 <body id="body">
 
+    <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
+        <i id="themeIcon" class="fas fa-moon"></i>
+    </button>
+
     <nav>
         <div class="container nav-container">
-            <a href="index.html" class="logo"><span>M.</span>
-            <div class="nav-right">
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li class="dropdown">
-                        <a>Expertise ▼</a>
-                        <div class="dropdown-content">
-                            <a href="pr.html">PR & Communications</a>
-                            <a href="marketing.html">Marketing & Storytelling</a>
-                            <a href="strategy.html">Strategic Planning</a>
-                            <a href="voiceover.html">Voiceover</a>
-                            <a href="speaking.html">Anchoring & Public Speaking</a>
-                            <a href="eca.html">Extra-Curricular Activities</a>
-                        </div>
-                    </li>
-                    <li><a href="#contact">Contact</a></li>
-                     <li><a href="https://www.linkedin.com/in/rejawanachowdhurymithila" target="_blank">LinkedIn</a></li>
-                    <li><a href="YOUR_RESUME_URL" class="resume-btn">My Resume</a></li>
-                </ul>
-                <button class="theme-btn" onclick="toggleTheme()" id="themeIcon">🌙</button>
-            </div>
+            <a href="index.html" class="logo">M.</a>
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
+            <ul class="nav-links" id="navMenu">
+                <li><a href="#about" onclick="toggleMenu()">About</a></li>
+                <li><a href="#expertise" onclick="toggleMenu()">Expertise</a></li>
+                <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+                <li><a href="https://www.linkedin.com/in/rejawanachowdhurymithila" target="_blank">LinkedIn</a></li>
+                 <li><a href="YOUR_DRIVE_LINK" target="_blank" class="resume-btn">My Resume</a></li>
+            </ul>
         </div>
     </nav>
 
-    <main>
-        <section class="container hero">
-            <div class="hero-flex">
-                <div class="hero-text">
-                    <span>Communications • Strategy • Presence</span>
-                    <h1>Rejawana Chowdhury Mithila</h1>
-                    <p>Techie with a Creative Mind!</p>
-                </div>
-                <div class="hero-img-wrap">
-                    <img src="profile.jpg" alt="Mithila" class="hero-img">
-                </div>
+    <section class="hero">
+        <div class="container hero-flex">
+            <div class="hero-text">
+                <span>Communications • Strategy • Presence</span>
+                <h1>Rejawana Chowdhury Mithila</h1>
+                <p>Techie with a creative and strategic mind!</p>
             </div>
-        </section>
+            <div class="hero-image-area">
+                <img src="profile.jpg" alt="Mithila Profile" class="hero-img">
+            </div>
+        </div>
+    </section>
 
-        <section class="container section-padding" id="expertise">
-            <div class="section-header">
-                <h2>Portfolio Pillars</h2>
-                <div class="accent-line"></div>
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <h2>Turning Ideas into Organized Action</h2>
+                <div class="about-text">
+                    <p>Hi! I’m <strong>Rejawana Chowdhury Mithila</strong>, a CSE undergraduate with a unique multi-disciplinary background in communications, operations management, public relations, and business development. I specialize in combining creativity with strategy to drive hands-on execution.</p>
+                    
+                    <p>From completing a year-long apprenticeship at UIU’s PRO & Communications Office to serving as Head of Operations at the UIU Computer Club, I've managed large-scale national events like UIU CSE Fest 2025 and UIU HackDay 2026. Beyond university, I've co-founded a food business and continue to work as a voiceover artist and public speaker.</p>
+                    
+                    <p>I thrive where technology meets narrative impact. You can explore my specific fields of experience and key areas of <strong>expertise</strong> in detail below.</p>
+                    
+                    <a href="#expertise" class="about-cta">Explore my Expertise <i class="fas fa-arrow-down"></i></a>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <section id="expertise" class="expertise">
+        <div class="container">
+            <h2>Expertise</h2>
             <div class="expertise-grid">
-                <a href="pr.html" class="exp-card">
-                    <h3>PR & Communications</h3>
-                    <p>Managing brand reputation and stakeholder relations through strategic outreach.</p>
-                    <span class="cta">View Projects →</span>
+                <a href="pr.html" class="exp-link">
+                    <div class="exp-card">
+                        <h3>PR & Communications</h3>
+                        <p>Building bridges between brands and the press through strategic outreach.</p>
+                    </div>
                 </a>
-                <a href="marketing.html" class="exp-card">
-                    <h3>Marketing & Storytelling</h3>
-                    <p>Digital campaigns that transform corporate goals into human stories.</p>
-                    <span class="cta">View Projects →</span>
-                    </a>
-                <a href="strategy.html" class="exp-card">
-                    <h3>Strategic Planning</h3>
-                    <p>Designing comprehensive event frameworks and campaign roadmaps from concept to execution.</p>
-                    <span class="cta">Explore Projects →</span>
-                    </a>
-                <a href="voiceover.html" class="exp-card">
-                    <h3>Voiceover</h3>
-                    <p>Providing professional tonal identity for commercial narrations and digital storytelling.</p>
-                    <span class="cta">Listen to Reels →</span>
-                    </a>
-                <a href="speaking.html" class="exp-card">
-                    <h3>Anchoring & Speaking</h3>
-                    <p>Commanding the stage for live events, orientation programs, and national competitions.</p>
-                    <span class="cta">View Performances →</span>
-                    </a>
-                <a href="eca.html" class="exp-card">
-                    <h3>Extra-Curriculars</h3>
-                    <p>Leadership roles, marketing forum initiatives, and competitive achievements.</p>
-                    <span class="cta">View Activities →</span>
+                <a href="marketing.html" class="exp-link">
+                    <div class="exp-card">
+                        <h3>Marketing & Storytelling</h3>
+                        <p>Translating heartbeats into narratives people recognize as their own.</p>
+                    </div>
+                </a>
+                <a href="strategy.html" class="exp-link">
+                    <div class="exp-card">
+                        <h3>Operations & Planning</h3>
+                        <p>End-to-end event and campaign management along with problem solving.</p>
+                    </div>
+                </a>
+                <a href="voiceover.html" class="exp-link">
+                    <div class="exp-card">
+                        <h3>Voiceover</h3>
+                        <p>Professional narration for digital and commercial projects.</p>
+                    </div>
+                </a>
+                <a href="speaking.html" class="exp-link">
+                    <div class="exp-card">
+                        <h3>Anchoring & Public Speaking</h3>
+                        <p>Live event hosting and public speaking.</p>
+                    </div>
                 </a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="contact" class="contact-footer">
-            <div class="container">
-                <div class="avail-tag">Available for Part-time roles • Internships • Freelance projects</div>
-                <a href="mailto:rejawana.mithila@gmail.com" class="email-link">rejawana.mithila@gmail.com</a>
-                
-                <div class="social-row">
-                    <a href="https://linkedin.com/in/rejawanachowdhurymithila" target="_blank">
-                        <svg class="social-icon" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                    </a>
-                    <a href="https://www.facebook.com/rejawanaOmithila" target="_blank">
-                        <svg class="social-icon" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                    </a>
-                    <a href="https://wa.me/+8801601956511" target="_blank">
-                        <svg class="social-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.94 3.659 1.437 5.634 1.437h.005c6.558 0 11.897-5.335 11.9-11.894a11.83 11.83 0 00-3.429-8.413z"/></svg>
-                    </a>
-                </div>
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="availability-tag">Available for Part-time roles • Internships • Freelance Projects</div>
+            <a href="mailto:rejawana.mithila@gmail.com" class="email-link">rejawana.mithila@gmail.com</a>
+            
+            <div class="social-links">
+                <a href="https://www.facebook.com/rejawanaOmithila/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/in/rejawanachowdhurymithila/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://wa.me/01601956511" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
     <script>
-        function applyTheme(theme) {
+        (function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
             const body = document.getElementById('body');
             const icon = document.getElementById('themeIcon');
-            if (theme === 'dark') {
+            
+            if (savedTheme === 'dark') {
                 body.setAttribute('data-theme', 'dark');
-                icon.innerText = '☀️';
-            } else {
+                if(icon) icon.className = 'fas fa-sun';
+            }
+        })();
+
+        function toggleTheme() {
+            const body = document.getElementById('body');
+            const icon = document.getElementById('themeIcon');
+            
+            if (body.hasAttribute('data-theme')) {
                 body.removeAttribute('data-theme');
-                icon.innerText = '🌙';
+                icon.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                icon.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'dark');
             }
         }
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        applyTheme(currentTheme);
-        function toggleTheme() {
-            const isDark = document.body.hasAttribute('data-theme');
-            const newTheme = isDark ? 'light' : 'dark';
-            localStorage.setItem('theme', newTheme);
-            applyTheme(newTheme);
+
+        function toggleMenu() {
+            if(window.innerWidth <= 850) {
+                document.getElementById('navMenu').classList.toggle('active');
+            }
         }
     </script>
 </body>
